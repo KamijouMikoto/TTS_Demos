@@ -24,7 +24,6 @@ def get_file_list():
                 'Phoneme_embedded VAW-GAN': sorted([file for file in all_files if 'phoneme' in file and original_file in file]),
                 'CMU-MOSEI': sorted([file for file in all_files if 'cmu-mosei' in file and original_file in file])
             }
-    print(files_by_folder)
     return files_by_folder
 
 
@@ -43,7 +42,7 @@ def extract_emotion_from_file_name(file_name):
         'ang': '&#x1F621 Anger',
         'dis': '&#x1F922 Disgust',
         'sle': '&#x1F634 Sleepy',
-        'sur': 'Surprise'
+        'sur': '&#x1F62F Surprise'
     }
     if 'neu' in file_name:
         return emotions['neu']
@@ -78,14 +77,15 @@ def generate_html():
                                                 a.h5(_t=extract_emotion_from_file_name(files[0]), klass="card-title")
                                                 a.audio(controls=True, src=os.path.join('samples', folder, files[0]))
                             else:
-                                a.h5(_t=f"Samples Generated with {model}", klass="pt-5 pb-3")
-                                with a.div(klass="row row-cols-1 row-cols-md-2 g-4"):
-                                    for file in files:
-                                        with a.div(klass="col"):
-                                            with a.div(klass="card"):
-                                                with a.div(klass="card-body text-center"):
-                                                    a.h5(_t=extract_emotion_from_file_name(file), klass="card-title")
-                                                    a.audio(controls=True, src=os.path.join('samples', folder, file))
+                                if len(files) > 0:
+                                    a.h5(_t=f"Samples Generated with {model}", klass="pt-5 pb-3")
+                                    with a.div(klass="row row-cols-1 row-cols-md-2 g-4"):
+                                        for file in files:
+                                            with a.div(klass="col"):
+                                                with a.div(klass="card"):
+                                                    with a.div(klass="card-body text-center"):
+                                                        a.h5(_t=extract_emotion_from_file_name(file), klass="card-title")
+                                                        a.audio(controls=True, src=os.path.join('samples', folder, file))
         a.script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js", integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf", crossorigin="anonymous")
 
     return str(a)

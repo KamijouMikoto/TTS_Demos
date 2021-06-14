@@ -20,7 +20,9 @@ def get_file_list():
             files_by_folder[folder][original_file] = {
                 'neu': sorted([file for file in all_files if 'neu' in file and original_file in file]),
                 'CycleGAN': sorted([file for file in all_files if 'cyc' in file and original_file in file]),
-                'VAW-GAN': sorted([file for file in all_files if 'vaw' in file and original_file in file])
+                'VAW-GAN': sorted([file for file in all_files if 'vaw' in file and original_file in file]),
+                'Phoneme_embedded VAW-GAN': sorted([file for file in all_files if 'phoneme' in file and original_file in file]),
+                'CMU-MOSEI': sorted([file for file in all_files if 'cmu-mosei' in file and original_file in file])
             }
     print(files_by_folder)
     return files_by_folder
@@ -40,7 +42,8 @@ def extract_emotion_from_file_name(file_name):
         'amu': '&#x1F604 Amused',
         'ang': '&#x1F621 Anger',
         'dis': '&#x1F922 Disgust',
-        'sle': '&#x1F634 Sleepy'
+        'sle': '&#x1F634 Sleepy',
+        'sur': 'Surprise'
     }
     if 'neu' in file_name:
         return emotions['neu']
@@ -59,6 +62,9 @@ def generate_html():
         with a.body():
             with a.div(klass="container pb-5 pt-5"):
                 a.h1(_t="Huawei ETTS Demo Files", klass="text-center display-1 pt-5 pb-5")
+                a.h5(_t="19/04/21: Reproduced VAW-GAN based emotion converter", klass="pt-5 pb-3")
+                a.h5(_t="01/06/21-A: Added phoneme embeddings to the encoder of VAW-GAN", klass="pt-5 pb-3")
+                a.h5(_t="01/06/21-B: Tested CMU-MOSEI with the vanilla VAW-GAN", klass="pt-5 pb-3")
                 for folder, files_by_file_name in get_file_list().items():
                     a.h3(_t=f"Samples from {convert_folder_name_to_date(folder)}", klass="text-center display-6 pt-5")
                     for original_file_name, files_by_model in files_by_file_name.items():

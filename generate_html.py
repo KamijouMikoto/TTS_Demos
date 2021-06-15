@@ -60,7 +60,7 @@ def generate_html():
             a.link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6", crossorigin="anonymous")
         with a.body():
             with a.div(klass="container pb-5 pt-5"):
-                a.h1(_t="Huawei ETTS Demo Files", klass="text-center display-1 pt-5 pb-5")
+                a.h1(_t="Emotional TTS Demo Files", klass="text-center display-1 pt-5 pb-5")
                 a.h5(_t="19/04/21: Reproduced VAW-GAN based emotion converter", klass="pt-5 pb-3")
                 a.h5(_t="01/06/21-A: Added phoneme embeddings to the encoder of VAW-GAN", klass="pt-5 pb-3")
                 a.h5(_t="01/06/21-B: Tested CMU-MOSEI with the vanilla VAW-GAN", klass="pt-5 pb-3")

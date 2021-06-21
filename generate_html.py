@@ -19,8 +19,8 @@ def get_file_list():
 
             files_by_folder[folder][original_file] = {
                 'neu': sorted([file for file in all_files if 'neu' in file and original_file in file]),
-                'CycleGAN': sorted([file for file in all_files if 'cyc' in file and original_file in file]),
-                'VAW-GAN': sorted([file for file in all_files if 'vaw' in file and original_file in file]),
+                'CycleGAN': sorted([file for file in all_files if 'cyclegan' in file and original_file in file]),
+                'VAW-GAN': sorted([file for file in all_files if 'vawgan' in file and original_file in file]),
                 'Phoneme embedded VAW-GAN': sorted([file for file in all_files if 'phoneme' in file and original_file in file]),
                 'CMU-MOSEI': sorted([file for file in all_files if 'cmu-mosei' in file and original_file in file]),
                 'VAW-GAN with forced alignment on word-level': sorted([file for file in all_files if 'vaw-fa-word' in file and original_file in file])

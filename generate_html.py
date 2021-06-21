@@ -8,7 +8,7 @@ from airium import Airium
 def get_file_list():
     sample_path = './out/samples'
     
-    folder_list = os.listdir(sample_path)
+    folder_list = sorted(os.listdir(sample_path), reverse=True)
     files_by_folder = defaultdict(dict)
     
     for folder in folder_list:

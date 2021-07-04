@@ -24,7 +24,7 @@ def get_file_list():
                 'Phoneme embedded VAW-GAN': sorted([file for file in all_files if 'phoneme' in file and original_file in file]),
                 'CMU-MOSEI': sorted([file for file in all_files if 'cmu-mosei' in file and original_file in file]),
                 'VAW-GAN with forced alignment on word-level': sorted([file for file in all_files if 'vaw-fa-word' in file and original_file in file]),
-                'VAW-GAN with forced alignment on word-level with MFCC Nonspeech Masking': sorted([file for file in all_files if 'vaw-fa-word' in file and original_file in file])
+                'VAW-GAN with forced alignment on word-level with MFCC Nonspeech Masking': sorted([file for file in all_files if 'vaw-fa-mnm' in file and original_file in file])
             }
     return files_by_folder
 
